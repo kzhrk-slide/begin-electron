@@ -276,8 +276,25 @@ class: center, middle
 
 ## XSS
 
-- これまでのWebアプリのXSS <br>➡ 影響範囲はWebアプリ内に留まる
+- これまでのWebアプリのXSS <br>➡ 影響範囲はWebアプリ内、ブラウザ内に留まる。
 - ElectronアプリのXSS<br>➡ 利用者のPCの全機能が攻撃者に利用される🔥🔥🔥
+
+
+---
+
+
+## DOM-based XSS
+
+```js
+// xss_payloadは攻撃者がコントロール可能な文字列
+elm.innerHTML = xss_paylorad; //XSS!
+```
+
+```js
+// 攻撃者はxss_payloadに以下の値を設定することで電卓を起動可能
+xss_paylorad = `<img src=# onerror=
+"require('child_process').exec('calc.exe', ()=>{})">`;
+```
 
 
 ---
@@ -288,6 +305,25 @@ class: center, middle
 
 
 ---
+
+
+## DEVTRON
+
+An Electron DevTools Extension
+
+http://electron.atom.io/devtron/
+
+```
+$ npm install --save-dev devtron
+```
+
+Run the following from the Console tab of your app's DevTools
+
+```
+require('devtron').install()
+```
+
+---
 class: center, middle
 
 
@@ -295,11 +331,28 @@ class: center, middle
 
 
 ---
+
+
+## SPECTRON
+
+http://electron.atom.io/spectron/
+
+```
+$ npm install --save-dev spectron
+```
+
+```
+const Application = require('spectron').Application
+const assert = require('assert')
+```
+
+
+---
 class: center, middle
 
-# 😻😻😻😻
-# 🌟 END 🌟
-# 😻😻😻😻
+# ⚛🙏⚛🙏⚛🙏⚛🙏⚛🙏⚛
+# END
+# ⚛🙏⚛🙏⚛🙏⚛🙏⚛🙏⚛
 
     </textarea>
     <script src="js/remark.min.js" type="text/javascript">

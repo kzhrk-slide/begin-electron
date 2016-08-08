@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Let's Begin Electron</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3, h4 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      li {
+        margin-top: 10px;
+      }
+      li:first-child {
+        margin-top: 0;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .big {
+        font-size: 150px;
+      }
+      pre {
+        padding: 1em;
+        background-color: #eee;
+      }
+      table {
+        width: 100%;
+      }
+      th {
+        padding: 0.2em;
+        background-color: #ddd;
+      }
+      td {
+        padding: 0.2em;
+      }
+      tr {
+        background-color: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+
+# Let's Begin Electron
+
+2016/08/03
+
+Kobayashi Kazuhiro (kzhrk)
+
+
+---
+
+
+## Agenda
+
+- What's electron?
+- Quick Start
+- Security
+- Debug
+- Testing
+
+
+---
+class: center, middle
+
+
+# What's electron?
+
+
+---
+
+
+## Build cross platform desktop apps
+
+Electronとは、Node.jsとChromiumをベースとしたデスクトップアプリケーションを作成するクロスプラットフォーム実行環境。
+
+HTMLやJavaScriptなどWeb技術によって、プラットフォームの違いを気にせずに手軽にWindows、Mac、Linuxのデスクトップアプリケーションを作成できるという部分が特徴。
+
+
+---
+class: center, middle
+
+
+# 中身がChromiumということは…
+
+
+---
+class: center, middle
+
+
+# 👏👏👏 ES2015 👏 👏 👏
+
+
+---
+class: center, middle
+
+
+# ⚛🙏⚛🙏⚛🙏⚛🙏⚛🙏⚛
+# ()=>{}
+# class
+# Promise 
+# ⚛🙏⚛🙏⚛🙏⚛🙏⚛🙏⚛
+
+
+---
+class: center, middle
+
+
+# Quick Start
+
+
+---
+
+
+## Only three lines
+
+```
+$ git clone https://github.com/electron/electron-quick-start
+$ cd electron-quick-start
+$ npm install && npm start
+```
+
+
+---
+
+
+## electron-quick-start -- main.js
+
+```
+const electron = require('electron')
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
+```
+
+.center[⬇]
+
+```
+const {app, BrowserWindow} = require('electron');
+```
+
+
+---
+class: center, middle
+
+
+# app
+
+Control your application’s event lifecycle.
+
+[app - Electron](http://electron.atom.io/docs/api/app/)
+
+
+---
+
+
+## Events
+
+- ready
+- window-all-closed
+- activate
+- before-quit
+
+
+---
+
+
+## Methods
+
+- app.quit()
+- app.focus()
+- app.getAppPath()
+- app.getPath(name)
+- app.setPath(name, path)
+
+
+---
+class: center, middle
+
+
+# BrowserWindow
+
+Create and control browser windows.
+
+[BrowserWindow - Electron](http://electron.atom.io/docs/api/browser-window/)
+
+
+---
+
+
+## options
+
+- width {int}
+- height {int}
+- x {int}
+- y {int}
+- center {boolean}
+- minwidth {int}
+- minHeight {int}
+- maxWidth {int}
+- maxHeight {int}
+- resizable {boolean}
+- movable {boolean}
+- minimizable {boolean}
+- maximizable {boolean}
+- title {string}
+- ...more
+
+
+---
+
+
+## Instance Events
+
+- page-title-updated
+- close
+- blur
+- focus
+- resize
+- move
+- closed
+
+
+---
+
+
+## Static Methods
+
+- BrowserWindow.addDevToolsExtension(path)
+- BrowserWindow.removeDevToolsExtension(name)
+
+
+---
+
+
+## Instance Properties
+
+```
+const {BrowserWindow} = require('electron')
+win = new BrowserWindow({width: 800, height: 600})
+```
+
+- win.webContents
+- win.id
+
+
+---
+
+
+## Instance Methods
+
+- win.close()
+- win.focus()
+- win.blur()
+- win.show()
+- win.setSize(width, height[, animate(for Mac)])
+- win.center()
+- win.reload()
+
+
+---
+class: center, middle
+
+
+# Security
+
+
+---
+
+
+## XSS
+
+- これまでのWebアプリのXSS <br>➡ 影響範囲はWebアプリ内に留まる
+- ElectronアプリのXSS<br>➡ 利用者のPCの全機能が攻撃者に利用される🔥🔥🔥
+
+
+---
+class: center, middle
+
+
+# Debug
+
+
+---
+class: center, middle
+
+
+# Testing
+
+
+---
+class: center, middle
+
+# 😻😻😻😻
+# 🌟 END 🌟
+# 😻😻😻😻
+
+    </textarea>
+    <script src="js/remark.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
